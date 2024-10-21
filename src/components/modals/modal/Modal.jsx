@@ -6,7 +6,7 @@ import { motion as m, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
 import useClickOutside from "@/hooks/useClickOutside";
 
-const Modal = ({ isOpen, setIsOpen, children }) => {
+const Modal = ({ isOpen, setIsOpen, children, modalHeader }) => {
   const ref = useRef();
   useClickOutside(ref, () => setIsOpen(false));
 
@@ -24,17 +24,21 @@ const Modal = ({ isOpen, setIsOpen, children }) => {
             initial={{ y: -50 }}
             animate={{
               y: 0,
-              transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+              transition: { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] },
             }}
             exit={{
               y: -50,
-              transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+              transition: { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] },
             }}
             className={styles.modal}
           >
             <div className={styles.modal_header}>
-              <span>Modal header</span>{" "}
-              <RxCross2 size={24} onClick={() => setIsOpen(false)} />
+              <span>{modalHeader}</span>{" "}
+              <RxCross2
+                style={{ cursor: "pointer" }}
+                size={24}
+                onClick={() => setIsOpen(false)}
+              />
             </div>
             <div className={styles.modal_content}>{children}</div>
             <div className={styles.modal_footer}>

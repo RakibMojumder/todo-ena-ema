@@ -1,6 +1,14 @@
 import styles from "./select.module.css"; // Optional: for styling
 
-const Select = ({ value, onChange, options, label, className, ...props }) => {
+const Select = ({
+  value,
+  onChange,
+  options,
+  label,
+  className,
+  style,
+  ...props
+}) => {
   return (
     <div>
       {label && <label className={styles.select_label}>{label}</label>}
@@ -8,6 +16,7 @@ const Select = ({ value, onChange, options, label, className, ...props }) => {
         value={value}
         onChange={onChange}
         className={`${styles.select} ${className}`}
+        style={style}
         {...props}
       >
         <option value="" disabled>

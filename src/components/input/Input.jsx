@@ -6,6 +6,7 @@ const Input = ({
   onChange,
   label,
   className,
+  style,
   name,
   ...props
 }) => {
@@ -18,6 +19,7 @@ const Input = ({
         placeholder={placeHolder}
         onChange={onChange}
         className={`${styles.input} ${className}`}
+        style={style}
         {...props}
       ></input>
     </div>

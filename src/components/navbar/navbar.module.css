@@ -1,3 +1,16 @@
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .todos_header {
     margin-bottom: 5px;
+}
+
+.navbar_right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }

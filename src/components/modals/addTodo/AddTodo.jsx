@@ -1,23 +1,23 @@
+"use client";
+
 import styles from "./addTodo.module.css";
 import Input from "@/components/input/Input";
 import Select from "@/components/select/Select";
 import TextArea from "@/components/textarea/TextArea";
 import { useState } from "react";
 import Modal from "../modal/Modal";
-
-const options = [
-  { value: "option1", label: "Option 1" },
-  { value: "option2", label: "Option 2" },
-  { value: "option3", label: "Option 3" },
-];
+import { FiPlus } from "react-icons/fi";
+import { priorities } from "@/constant/todoPriority";
 
 const AddTodo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Add Todo</button>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+      <button className={styles.add_todo_btn} onClick={() => setIsOpen(true)}>
+        <FiPlus size={25} />
+      </button>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader="Add Todo">
         <div>
           <form action="" className={styles.add_todo_form}>
             <Input label="Todo Name" placeHolder="Enter todo name" />
@@ -25,7 +25,7 @@ const AddTodo = () => {
             <Select
               //   value={selectedOption}
               //   onChange={(e) => setSelectedOption(e.target.value)}
-              options={options}
+              options={priorities}
               label="Select priority"
             />
             <TextArea label="Description" placeHolder="Enter description" />
