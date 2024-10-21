@@ -1,8 +1,8 @@
 .modal_container {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, .3);
-    z-index: 10;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 50;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,5 +35,33 @@
     padding: 20px;
     border-top: 1px solid #ddd;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+.modal_submit_button {
+    padding: 12px 25px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+}
+
+.modal_content::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+    cursor: pointer;
+    /* Width of the scrollbar */
+}
+
+.modal_content::-webkit-scrollbar-track {
+    background: #fff;
+    /* Background of the track */
+}
+
+.modal_content::-webkit-scrollbar-thumb {
+    background-color: #7B7B7B;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners */
 }

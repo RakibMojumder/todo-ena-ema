@@ -1,0 +1,12 @@
+.text_area_label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.text_area {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 15px;
+    font-family: var(--font-geist-sans);
+}

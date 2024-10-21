@@ -8,7 +8,7 @@ const Todos = () => {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th style={{ minWidth: "50px" }}>S.N.</th>
+              <th style={{ minWidth: "50px", paddingLeft: "20px" }}>S.N.</th>
               <th>Name</th>
               <th style={{ minWidth: "300px" }}>Description</th>
               <th>Category</th>

@@ -1,0 +1,12 @@
+.select_label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.select {
+    padding: 12px;
+    width: 100%;
+    font-size: 15px;
+    cursor: pointer;
+}
