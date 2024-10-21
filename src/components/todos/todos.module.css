@@ -1,0 +1,64 @@
+.todos_container {
+    min-height: 400px;
+    max-height: calc(100svh - 110px);
+    max-width: 900px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 8px #ddd;
+    border-radius: 15px;
+    overflow-x: auto;
+}
+
+.todos_container::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+    cursor: pointer;
+    /* Width of the scrollbar */
+}
+
+.todos_container::-webkit-scrollbar-track {
+    background: #fff;
+    /* Background of the track */
+}
+
+.todos_container::-webkit-scrollbar-thumb {
+    background-color: #7B7B7B;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+/* .todos_container::-webkit-scrollbar-thumb:hover {
+    background-color: #7B7B7B;
+} */
+
+.todos {
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.table thead {
+    background: #F4F4F5;
+}
+
+.table th {
+    background: #F4F4F5;
+    min-width: 150px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    vertical-align: top;
+    position: sticky;
+    top: -20px;
+    z-index: 1;
+}
+
+.table td {
+    padding: 16px 12px;
+    vertical-align: top;
+}
