@@ -5,6 +5,7 @@ const Select = ({
   onChange,
   options,
   label,
+  name,
   className,
   style,
   ...props
@@ -13,6 +14,7 @@ const Select = ({
     <div>
       {label && <label className={styles.select_label}>{label}</label>}
       <select
+        name={name}
         value={value}
         onChange={onChange}
         className={`${styles.select} ${className}`}

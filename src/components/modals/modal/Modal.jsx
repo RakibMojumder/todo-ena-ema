@@ -40,15 +40,23 @@ const Modal = ({ isOpen, setIsOpen, children, modalHeader }) => {
                 onClick={() => setIsOpen(false)}
               />
             </div>
-            <div className={styles.modal_content}>{children}</div>
-            <div className={styles.modal_footer}>
-              <button className={styles.modal_submit_button}>Submit</button>
-            </div>
+            {children}
           </m.div>
         </m.div>
       )}
     </AnimatePresence>
   );
 };
+
+const ModalContent = ({ children }) => {
+  return <div className={styles.modal_content}>{children}</div>;
+};
+
+const ModalFooter = ({ children }) => {
+  return <div className={styles.modal_footer}>{children}</div>;
+};
+
+Modal.Content = ModalContent;
+Modal.Footer = ModalFooter;
 
 export default Modal;

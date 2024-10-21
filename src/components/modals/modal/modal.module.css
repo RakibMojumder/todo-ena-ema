@@ -27,7 +27,6 @@
 
 .modal_content {
     flex-grow: 1;
-    padding: 20px;
     overflow-y: auto;
 }
 
@@ -38,14 +37,6 @@
     justify-content: flex-end;
 }
 
-.modal_submit_button {
-    padding: 12px 25px;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #000;
-    border: none;
-    cursor: pointer;
-}
 
 .modal_content::-webkit-scrollbar {
     width: 5px;

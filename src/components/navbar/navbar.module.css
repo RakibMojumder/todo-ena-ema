@@ -17,3 +17,31 @@
     align-items: center;
     gap: 20px;
 }
+
+.search_box_container {}
+
+.search_box {
+    padding: 8px 12px;
+}
+
+/* Responsive CSS */
+@media only screen and (max-width:650px) {
+    .navbar_container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .todos_header {
+        width: 100%;
+    }
+
+    .navbar_right {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .search_box_container {
+        width: 100%
+    }
+}

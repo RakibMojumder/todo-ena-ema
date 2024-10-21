@@ -11,3 +11,12 @@
     border-radius: 100%;
     cursor: pointer;
 }
+
+.submit_button {
+    padding: 12px 25px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+}

@@ -4,6 +4,7 @@ const TextArea = ({
   placeHolder,
   onChange,
   label,
+  name,
   className,
   style,
   ...props
@@ -12,6 +13,7 @@ const TextArea = ({
     <div>
       {label && <label className={styles.text_area_label}>{label}</label>}
       <textarea
+        name={name}
         placeholder={placeHolder}
         onChange={onChange}
         rows={6}

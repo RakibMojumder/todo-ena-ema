@@ -5,13 +5,14 @@ const Input = ({
   placeHolder,
   onChange,
   label,
-  className,
   style,
+  className,
+  containerClassName,
   name,
   ...props
 }) => {
   return (
-    <div>
+    <div className={containerClassName}>
       {label && <label className={styles.input_label}>{label}</label>}
       <input
         type={type}

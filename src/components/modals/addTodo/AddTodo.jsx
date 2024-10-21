@@ -8,9 +8,42 @@ import { useState } from "react";
 import Modal from "../modal/Modal";
 import { FiPlus } from "react-icons/fi";
 import { priorities } from "@/constant/todoPriority";
+import { toast } from "react-toastify";
+import { useAddTodoMutation } from "@/redux/features/todos/todos.api";
+
+const initialState = {
+  name: "",
+  description: "",
+  category: "",
+  priority: "",
+};
 
 const AddTodo = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [formData, setFormData] = useState(initialState);
+  const [addTodo, { isLoading, data }] = useAddTodoMutation();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleAddTodo = async () => {
+    // const fields = Object.keys(formData);
+    const { name, description, category, priority } = formData;
+
+    if (!name || !description || !category || !priority) {
+      return toast.error("All field are required");
+    }
+
+    try {
+      const res = await addTodo(formData).unwrap();
+      setIsOpen(false);
+      setFormData(initialState);
+      toast.success(res?.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -18,19 +51,42 @@ const AddTodo = () => {
         <FiPlus size={20} />
       </button>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader="Add Todo">
-        <div>
-          <form action="" className={styles.add_todo_form}>
-            <Input label="Todo Name" placeHolder="Enter todo name" />
-            <Input label="Category" placeHolder="Enter category" />
-            <Select
-              //   value={selectedOption}
-              //   onChange={(e) => setSelectedOption(e.target.value)}
-              options={priorities}
-              label="Select priority"
-            />
-            <TextArea label="Description" placeHolder="Enter description" />
-          </form>
-        </div>
+        <Modal.Content>
+          <div style={{ padding: "20px" }}>
+            <form className={styles.add_todo_form}>
+              <Input
+                name="name"
+                label="Todo Name"
+                placeHolder="Enter todo name"
+                onChange={(e) => handleChange(e)}
+              />
+              <Input
+                name="category"
+                label="Category"
+                placeHolder="Enter category"
+                onChange={(e) => handleChange(e)}
+              />
+              <Select
+                value={formData.priority}
+                onChange={(e) => handleChange(e)}
+                name="priority"
+                options={priorities}
+                label="Select priority"
+              />
+              <TextArea
+                name="description"
+                label="Description"
+                placeHolder="Enter description"
+                onChange={(e) => handleChange(e)}
+              />
+            </form>
+          </div>
+        </Modal.Content>
+        <Modal.Footer>
+          <button onClick={handleAddTodo} className={styles.submit_button}>
+            Submit
+          </button>
+        </Modal.Footer>
       </Modal>
     </>
   );
