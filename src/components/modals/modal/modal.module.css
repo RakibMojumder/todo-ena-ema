@@ -65,3 +65,10 @@
     border-radius: 10px;
     /* Rounded corners */
 }
+
+
+@media only screen and (max-width: 420px) {
+    .modal {
+        width: 370px;
+    }
+}

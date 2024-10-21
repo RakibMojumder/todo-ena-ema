@@ -7,3 +7,13 @@
   align-items: center;
   background-color: #fff;
 }
+
+
+/* Responsive CSS */
+/* @media only screen and (max-width:450px) {
+  .page {
+    height: 100%;
+    max-width: 400px;
+    overflow: hidden;
+  }
+} */

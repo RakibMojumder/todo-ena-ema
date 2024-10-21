@@ -15,7 +15,7 @@ const AddTodo = () => {
   return (
     <>
       <button className={styles.add_todo_btn} onClick={() => setIsOpen(true)}>
-        <FiPlus size={25} />
+        <FiPlus size={20} />
       </button>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader="Add Todo">
         <div>

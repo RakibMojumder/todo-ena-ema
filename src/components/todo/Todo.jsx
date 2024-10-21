@@ -6,7 +6,7 @@ import { IoCheckmarkDoneOutline } from "react-icons/io5";
 const Todo = ({ serialNo }) => {
   return (
     <tr>
-      <td style={{ minWidth: "50px" }}>{serialNo + 1}</td>
+      <td style={{ minWidth: "50px", paddingLeft: "20px" }}>{serialNo + 1}</td>
       <td>Rakib Ahmed</td>
       <td style={{ minWidth: "300px" }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,

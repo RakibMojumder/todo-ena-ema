@@ -4,7 +4,11 @@
     border: none;
     height: 35px;
     width: 35px;
+    border-radius: 100%;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search_todo>*+* {

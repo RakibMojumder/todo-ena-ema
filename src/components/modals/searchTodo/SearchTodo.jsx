@@ -17,7 +17,7 @@ const SearchTodo = () => {
         className={styles.search_todo_btn}
         onClick={() => setIsOpen(true)}
       >
-        <FiSearch size={22} />
+        <FiSearch size={20} />
       </button>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader="Search Todo">
         <div>

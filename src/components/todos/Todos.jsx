@@ -19,7 +19,7 @@ const Todos = () => {
             </tr>
           </thead>
           <tbody>
-            {[...Array(5)].map((todo, index) => (
+            {[...Array(15)].map((todo, index) => (
               <Todo key={index} serialNo={index} />
             ))}
           </tbody>
