@@ -19,6 +19,9 @@ The Dynamic Task Management Application is a single-page application (SPA) built
 - Backend: Node.js, Express.js
 - Database: MongoDB
 
+## Live link 
+https://todo-ten-bay-12.vercel.app
+
 ## Getting Started
 
 Follow the instructions below to clone the repository, install packages, and run the application.
