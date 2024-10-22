@@ -36,7 +36,7 @@ const EditTodo = ({ todo }) => {
     try {
       const res = await updateTodo({ id: todo._id, data: formData });
       setIsOpen(false);
-      toast.success(res?.message);
+      toast.success("Todo updated successfully");
     } catch (error) {
       toast.error("Something went wrong");
     }

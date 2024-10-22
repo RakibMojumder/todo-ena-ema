@@ -1,4 +1,4 @@
-import Todos from "@/components/todos/todos";
+import Todos from "@/components/todos/Todos";
 import styles from "./page.module.css";
 import Navbar from "@/components/navbar/Navbar";
 
