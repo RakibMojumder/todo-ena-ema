@@ -21,12 +21,11 @@ const EditTodo = ({ todo }) => {
   });
   const [updateTodo, {}] = useUpdateTodoMutation();
 
-  const handleChange = async (e) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleEditTodo = async () => {
-    // const fields = Object.keys(formData);
     const { name, description, category, priority } = formData;
 
     if (!name || !description || !category || !priority) {
@@ -34,7 +33,7 @@ const EditTodo = ({ todo }) => {
     }
 
     try {
-      const res = await updateTodo({ id: todo._id, data: formData });
+      await updateTodo({ id: todo._id, data: formData });
       setIsOpen(false);
       toast.success("Todo updated successfully");
     } catch (error) {
@@ -52,7 +51,7 @@ const EditTodo = ({ todo }) => {
       >
         <CiEdit size={20} />
       </button>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader="Add Todo">
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader="Edit Todo">
         <Modal.Content>
           <div style={{ padding: "20px" }}>
             <form className={styles.edit_todo_form}>

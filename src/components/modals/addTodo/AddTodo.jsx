@@ -28,7 +28,6 @@ const AddTodo = () => {
   };
 
   const handleAddTodo = async () => {
-    // const fields = Object.keys(formData);
     const { name, description, category, priority } = formData;
 
     if (!name || !description || !category || !priority) {

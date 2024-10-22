@@ -16,8 +16,6 @@ const Todos = () => {
     status,
   });
 
-  console.log(data);
-
   return (
     <div className={styles.todos_container}>
       {isLoading && <Loader />}

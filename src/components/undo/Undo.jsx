@@ -15,6 +15,7 @@ const Undo = () => {
   const [updateTodo, {}] = useUpdateTodoMutation();
   const timeoutRef = useRef(null);
 
+  // start timer for undo todo
   useEffect(() => {
     if (deletedTodo) {
       timeoutRef.current = setTimeout(() => {
@@ -25,6 +26,7 @@ const Undo = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [deletedTodo, dispatch]);
 
+  // Undo deleted todo
   const handleUndoTodo = async () => {
     try {
       if (timeoutRef.current) {
@@ -44,8 +46,8 @@ const Undo = () => {
 
   return (
     <>
-      {timer && (
-        <AnimatePresence>
+      <AnimatePresence>
+        {timer && (
           <m.div
             initial={{ y: 100 }}
             animate={{ y: 0, transition: { duration: 0.2 } }}
@@ -55,8 +57,8 @@ const Undo = () => {
             <p>Undo the deleted todo</p>{" "}
             <button onClick={handleUndoTodo}>Undo</button>
           </m.div>
-        </AnimatePresence>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 };
