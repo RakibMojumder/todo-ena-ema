@@ -15,7 +15,7 @@ const todosApi = baseApi.injectEndpoints({
         }
 
         return {
-          url: "/task",
+          url: "/tasks",
           method: "GET",
           params,
         };
@@ -25,7 +25,7 @@ const todosApi = baseApi.injectEndpoints({
 
     addTodo: builder.mutation({
       query: (data) => ({
-        url: "/task",
+        url: "/tasks",
         method: "POST",
         body: data,
       }),
@@ -34,12 +34,20 @@ const todosApi = baseApi.injectEndpoints({
 
     updateTodo: builder.mutation({
       query: ({ id, data }) => ({
-        url: `/task/${id}`,
+        url: `/tasks/${id}`,
         method: "PATCH",
         body: data,
       }),
       invalidatesTags: ["todos"],
     }),
+
+    deleteTodo: builder.mutation({
+      query: () => ({
+        url: `/tasks/:id`,
+        method: "DELETE",
+        body: {isDeleted: true}
+      })
+    })
   }),
 });
 
@@ -47,4 +55,5 @@ export const {
   useAddTodoMutation,
   useGetAllTodosQuery,
   useUpdateTodoMutation,
+  useDeleteTodoMutation
 } = todosApi;

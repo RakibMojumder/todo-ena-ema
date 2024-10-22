@@ -37,14 +37,11 @@ const CompleteAlert = ({ todo }) => {
       <Alert isOpen={isOpen} setIsOpen={setIsOpen}>
         <div>
           <p style={{ textAlign: "center" }}>Your task is complete?</p>
-          <div className={styles.alert_btn_container}>
-            <button
-              onClick={() => setIsOpen(false)}
-              className={styles.cancel_btn}
-            >
+          <div className="alert_btn_container">
+            <button onClick={() => setIsOpen(false)} className="cancel_btn">
               Cancel
             </button>
-            <button onClick={handleCompleteTodo} className={styles.yes_btn}>
+            <button onClick={handleCompleteTodo} className="yes_btn">
               Yes
             </button>
           </div>

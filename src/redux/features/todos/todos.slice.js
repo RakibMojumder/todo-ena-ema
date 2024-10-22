@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   searchTerm: "",
   priority: "",
+  deletedTodo: null,
+  timer: false,
 };
 
 export const todoSlice = createSlice({
@@ -16,9 +18,18 @@ export const todoSlice = createSlice({
     setPriority: (state, action) => {
       state.priority = action.payload;
     },
+
+    setDeletedTodo: (state, action) => {
+      state.deletedTodo = action.payload;
+    },
+
+    setTimer: (state, action) => {
+      state.timer = action.payload;
+    },
   },
 });
 
-export const { setSearchTerm, setPriority } = todoSlice.actions;
+export const { setSearchTerm, setPriority, setDeletedTodo, setTimer } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;

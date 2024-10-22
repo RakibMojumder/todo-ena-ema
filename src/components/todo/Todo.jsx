@@ -4,6 +4,7 @@ import { CiEdit } from "react-icons/ci";
 import { IoCheckmarkDoneOutline } from "react-icons/io5";
 import EditTodo from "../modals/editTodo/EditTodo";
 import CompleteAlert from "../alerts/completeTask/CompleteAlert";
+import DeleteAlert from "../alerts/deleteAlert/DeleteAlert";
 
 const Todo = ({ todo, serialNo }) => {
   const priorityStyle =
@@ -29,9 +30,7 @@ const Todo = ({ todo, serialNo }) => {
       </td>
       <td>{todo.status}</td>
       <td className={styles.action_button_container}>
-        <button className={styles.delete_button}>
-          <MdDelete size={20} />
-        </button>
+        <DeleteAlert todo={todo} />
         <EditTodo todo={todo} />
         <CompleteAlert todo={todo} />
       </td>

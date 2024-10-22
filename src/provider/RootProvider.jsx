@@ -1,5 +1,6 @@
 "use client";
 
+import Undo from "@/components/undo/Undo";
 import { store } from "@/redux/store";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -15,6 +16,7 @@ const RootProvider = ({ children }) => {
           position="bottom-right"
           autoClose={1500}
         />
+        <Undo />
       </Provider>
     </div>
   );

@@ -21,6 +21,30 @@ a {
   text-decoration: none;
 }
 
+.alert_btn_container {
+  margin-top: 25px;
+  display: flex;
+  gap: 35px;
+}
+
+.cancel_btn {
+  padding: 12px 25px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+.yes_btn {
+  padding: 12px 25px;
+  border-radius: 5px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
 .todo_complete {
   display: none;
 }
