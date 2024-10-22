@@ -1,5 +1,6 @@
 .todos_container {
     width: 90vw;
+    min-height: 300px;
     max-width: 1020px;
     padding: 20px;
     border-radius: 10px;

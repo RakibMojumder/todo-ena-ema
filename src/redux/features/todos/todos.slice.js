@@ -9,10 +9,16 @@ export const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    setSearchTerm: (state, action) => {},
+    setSearchTerm: (state, action) => {
+      state.searchTerm = action.payload;
+    },
+
+    setPriority: (state, action) => {
+      state.priority = action.payload;
+    },
   },
 });
 
-export const { setSearchTerm } = todoSlice.actions;
+export const { setSearchTerm, setPriority } = todoSlice.actions;
 
 export default todoSlice.reducer;

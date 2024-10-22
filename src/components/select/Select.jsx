@@ -2,6 +2,7 @@ import styles from "./select.module.css"; // Optional: for styling
 
 const Select = ({
   value,
+  defaultValue,
   onChange,
   options,
   label,
@@ -16,6 +17,7 @@ const Select = ({
       <select
         name={name}
         value={value}
+        defaultValue={defaultValue}
         onChange={onChange}
         className={`${styles.select} ${className}`}
         style={style}

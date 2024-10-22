@@ -21,7 +21,7 @@
 .search_box_container {}
 
 .search_box {
-    padding: 8px 12px;
+    padding: 8px 12px !important;
 }
 
 /* Responsive CSS */

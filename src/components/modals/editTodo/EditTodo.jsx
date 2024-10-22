@@ -1,33 +1,31 @@
 "use client";
 
-import styles from "./addTodo.module.css";
+import styles from "./editTodo.module.css";
 import Input from "@/components/input/Input";
 import Select from "@/components/select/Select";
 import TextArea from "@/components/textarea/TextArea";
 import { useState } from "react";
 import Modal from "../modal/Modal";
-import { FiPlus } from "react-icons/fi";
 import { priorities } from "@/constant/todoPriority";
 import { toast } from "react-toastify";
-import { useAddTodoMutation } from "@/redux/features/todos/todos.api";
+import { CiEdit } from "react-icons/ci";
+import { useUpdateTodoMutation } from "@/redux/features/todos/todos.api";
 
-const initialState = {
-  name: "",
-  description: "",
-  category: "",
-  priority: "",
-};
-
-const AddTodo = () => {
+const EditTodo = ({ todo }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState(initialState);
-  const [addTodo, { isLoading, data }] = useAddTodoMutation();
+  const [formData, setFormData] = useState({
+    name: todo.name,
+    description: todo.description,
+    category: todo.category,
+    priority: todo.priority,
+  });
+  const [updateTodo, {}] = useUpdateTodoMutation();
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleAddTodo = async () => {
+  const handleEditTodo = async () => {
     // const fields = Object.keys(formData);
     const { name, description, category, priority } = formData;
 
@@ -36,9 +34,8 @@ const AddTodo = () => {
     }
 
     try {
-      const res = await addTodo(formData).unwrap();
+      const res = await updateTodo({ id: todo._id, data: formData });
       setIsOpen(false);
-      setFormData(initialState);
       toast.success(res?.message);
     } catch (error) {
       toast.error("Something went wrong");
@@ -47,13 +44,18 @@ const AddTodo = () => {
 
   return (
     <>
-      <button className={styles.add_todo_btn} onClick={() => setIsOpen(true)}>
-        <FiPlus size={20} />
+      <button
+        onClick={() => setIsOpen(true)}
+        className={`${styles.edit_todo_button} ${
+          todo?.status === "Completed" ? "todo_complete" : ""
+        }`}
+      >
+        <CiEdit size={20} />
       </button>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader="Add Todo">
         <Modal.Content>
           <div style={{ padding: "20px" }}>
-            <form className={styles.add_todo_form}>
+            <form className={styles.edit_todo_form}>
               <Input
                 name="name"
                 label="Todo Name"
@@ -69,7 +71,7 @@ const AddTodo = () => {
                 onChange={(e) => handleChange(e)}
               />
               <Select
-                value={formData.priority}
+                defaultValue={formData.priority}
                 onChange={(e) => handleChange(e)}
                 name="priority"
                 options={priorities}
@@ -86,7 +88,7 @@ const AddTodo = () => {
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <button onClick={handleAddTodo} className={styles.submit_button}>
+          <button onClick={handleEditTodo} className={styles.submit_button}>
             Submit
           </button>
         </Modal.Footer>
@@ -95,4 +97,4 @@ const AddTodo = () => {
   );
 };
 
-export default AddTodo;
+export default EditTodo;

@@ -7,6 +7,7 @@ const TextArea = ({
   name,
   className,
   style,
+  value,
   ...props
 }) => {
   return (
@@ -16,6 +17,7 @@ const TextArea = ({
         name={name}
         placeholder={placeHolder}
         onChange={onChange}
+        value={value}
         rows={6}
         className={`${styles.text_area} ${className}`}
         style={style}
