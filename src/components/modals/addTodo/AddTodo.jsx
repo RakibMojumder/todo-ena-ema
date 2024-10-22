@@ -72,6 +72,7 @@ const AddTodo = () => {
                 value={formData.priority}
                 onChange={(e) => handleChange(e)}
                 name="priority"
+                placeholder={"Select priority"}
                 options={priorities}
                 label="Select priority"
               />

@@ -3,7 +3,7 @@ import baseApi from "@/redux/api/baseApi";
 const todosApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllTodos: builder.query({
-      query: ({ searchValue, priority }) => {
+      query: ({ searchValue, priority, status }) => {
         const params = new URLSearchParams();
 
         if (searchValue) {
@@ -12,6 +12,10 @@ const todosApi = baseApi.injectEndpoints({
 
         if (priority) {
           params.append("priority", priority);
+        }
+
+        if (status) {
+          params.append("status", status);
         }
 
         return {

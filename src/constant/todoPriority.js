@@ -10,3 +10,10 @@ export const allPriorities = [
   { value: "Medium", label: "Medium" },
   { value: "High", label: "High" },
 ];
+
+
+export const allStatus = [
+  { value: "All", label: "All" },
+  { value: "Pending", label: "Pending" },
+  { value: "Completed", label: "Completed" },
+];

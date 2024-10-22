@@ -8,14 +8,23 @@ import { useGetAllTodosQuery } from "@/redux/features/todos/todos.api";
 import Loader from "../loader/Loader";
 
 const Todos = () => {
-  const { searchTerm, priority } = useSelector((state) => state.todo);
+  const { searchTerm, priority, status } = useSelector((state) => state.todo);
   const searchValue = useDebounce(searchTerm);
-  const { isLoading, data } = useGetAllTodosQuery({ searchValue, priority });
+  const { isLoading, data } = useGetAllTodosQuery({
+    searchValue,
+    priority,
+    status,
+  });
 
   return (
     <div className={styles.todos_container}>
       {isLoading && <Loader />}
-      {data?.data?.length && (
+      {data?.data?.length <= 0 && (
+        <div style={{ textAlign: "center", fontSize: "20px" }}>
+          No todo found
+        </div>
+      )}
+      {data?.data?.length > 0 && (
         <div className={styles.todos}>
           <table className={styles.table}>
             <thead>

@@ -3,15 +3,19 @@
 import styles from "./navbar.module.css";
 import AddTodo from "../modals/addTodo/AddTodo";
 import Select from "../select/Select";
-import { allPriorities } from "@/constant/todoPriority";
+import { allPriorities, allStatus } from "@/constant/todoPriority";
 import Input from "../input/Input";
 import { useDispatch } from "react-redux";
-import { setPriority, setSearchTerm } from "@/redux/features/todos/todos.slice";
+import {
+  setPriority,
+  setSearchTerm,
+  setStatus,
+} from "@/redux/features/todos/todos.slice";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const { searchTerm, priority } = useSelector((state) => state.todo);
+  const { searchTerm, priority, status } = useSelector((state) => state.todo);
 
   return (
     <div className={styles.navbar_container}>
@@ -30,13 +34,16 @@ const Navbar = () => {
         <Select
           value={priority}
           options={allPriorities}
+          placeholder="Priority"
           onChange={(e) => dispatch(setPriority(e.target.value))}
           style={{ padding: "8px 12px" }}
         />
+        {/* Status filter */}
         <Select
-          value={priority}
-          options={allPriorities}
-          onChange={(e) => dispatch(setPriority(e.target.value))}
+          value={status}
+          options={allStatus}
+          placeholder="Status"
+          onChange={(e) => dispatch(setStatus(e.target.value))}
           style={{ padding: "8px 12px" }}
         />
         {/* Add Todo Modal */}
