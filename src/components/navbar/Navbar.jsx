@@ -33,6 +33,12 @@ const Navbar = () => {
           onChange={(e) => dispatch(setPriority(e.target.value))}
           style={{ padding: "8px 12px" }}
         />
+        <Select
+          value={priority}
+          options={allPriorities}
+          onChange={(e) => dispatch(setPriority(e.target.value))}
+          style={{ padding: "8px 12px" }}
+        />
         {/* Add Todo Modal */}
         <AddTodo />
       </div>

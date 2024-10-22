@@ -40,14 +40,6 @@ const todosApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["todos"],
     }),
-
-    deleteTodo: builder.mutation({
-      query: () => ({
-        url: `/tasks/:id`,
-        method: "DELETE",
-        body: {isDeleted: true}
-      })
-    })
   }),
 });
 
@@ -55,5 +47,4 @@ export const {
   useAddTodoMutation,
   useGetAllTodosQuery,
   useUpdateTodoMutation,
-  useDeleteTodoMutation
 } = todosApi;

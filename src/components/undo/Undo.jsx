@@ -3,7 +3,7 @@
 import { useSelector } from "react-redux";
 import styles from "./undo.module.css";
 import { motion as m, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { setTimer } from "@/redux/features/todos/todos.slice";
 import { useUpdateTodoMutation } from "@/redux/features/todos/todos.api";
@@ -13,27 +13,25 @@ const Undo = () => {
   const dispatch = useDispatch();
   const { timer, deletedTodo } = useSelector((state) => state.todo);
   const [updateTodo, {}] = useUpdateTodoMutation();
-  let [time, setTime] = useState();
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     if (deletedTodo) {
-      setTime(
-        setTimeout(() => {
-          dispatch(setTimer(false));
-        }, 6000)
-      );
+      timeoutRef.current = setTimeout(() => {
+        dispatch(setTimer(false));
+      }, 6000);
     }
 
-    return () => clearTimeout(time)
-  }, [deletedTodo, dispatch,time]);
+    return () => clearTimeout(timeoutRef.current);
+  }, [deletedTodo, dispatch]);
 
   const handleUndoTodo = async () => {
     try {
-      if (time) {
-        clearTimeout(time);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
       }
 
-       await updateTodo({
+      await updateTodo({
         id: deletedTodo._id,
         data: { isDeleted: false },
       });
